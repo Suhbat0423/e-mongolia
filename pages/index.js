@@ -143,7 +143,7 @@ export default function Home() {
               </div>
               <div className={style.textcon}>
                 <p>Яс үндэс</p>
-                <p>{sirsir}</p>
+                <p>Халх</p>
               </div>
               <div className={style.textconBlue}>
                 <p>Хүйс</p>
