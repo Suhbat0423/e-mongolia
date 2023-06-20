@@ -1,5 +1,5 @@
 import style from "./index.module.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 
 export default function Home() {
@@ -10,8 +10,23 @@ export default function Home() {
   const [sirsir, setSirsir] = useState();
   const [displayInputs, setDisplayInputs] = useState(true);
   const [firstLetter, setFirstLetter] = useState("");
-
   const [image, setImage] = useState(null);
+  const [randomLetter, setRandomLetter] = useState("");
+
+  const a1 = Math.floor(Number(temp) / 1000000) % 100;
+  const a2 = Math.floor(Number(temp) / 10000) % 10;
+  const a3 = Math.floor(Number(temp) / 100) % 100;
+
+  const getRandomLetterFromWord = (word) => {
+    const randomIndex = Math.floor(Math.random() * word.length);
+    return word.charAt(randomIndex);
+  };
+
+  useEffect(() => {
+    const word = "пгдрвчсмнл";
+    const letter = getRandomLetterFromWord(word);
+    setRandomLetter(letter);
+  }, []);
 
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
@@ -26,9 +41,7 @@ export default function Home() {
     }
   };
 
-  const a1 = Math.floor(Number(temp) / 1000000) % 100;
-  const a2 = Math.floor(Number(temp) / 10000) % 10;
-  const a3 = Math.floor(Number(temp) / 100) % 100;
+  const b1 = Math.floor();
 
   const handleNameChange = (event) => {
     setName(event.target.value);
@@ -52,8 +65,6 @@ export default function Home() {
     setFirstLetter(firstChar.toUpperCase());
     setDisplayInputs(false);
   };
-
-  console.log(name, age, temp, sir);
   return (
     <div>
       {displayInputs && (
@@ -127,7 +138,10 @@ export default function Home() {
               <h1>Үндсэн мэдээлэл</h1>
               <div className={style.textcon}>
                 <p>Регистэрийн дугаар</p>
-                <p>уп{temp}</p>
+                <p>
+                  у{randomLetter}
+                  {temp}
+                </p>
               </div>
               <div className={style.textconBlue}>
                 <p>Ургийн овог</p>
