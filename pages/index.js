@@ -125,15 +125,11 @@ export default function Home() {
         <div className={style.imgContainer}>
           <div className={style.imageCon}>
             <h1>хувийн мэдээлэл</h1>
-            {image && (
-              <Image
-                className={style.image}
-                src={image}
-                alt="Uploaded Image"
-                width={300}
-                height={300}
-              />
-            )}
+            <img
+              src="https://cdn.britannica.com/58/129958-050-C3FE2DD2/Adolf-Hitler-1933.jpg"
+              alt=""
+              className={style.image}
+            />
             <div className={style.about1}>
               <h1>Үндсэн мэдээлэл</h1>
               <div className={style.textcon}>
